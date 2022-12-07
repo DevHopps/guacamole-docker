@@ -8,7 +8,7 @@ services:
       - ./guacd-drive:/drive
       - ./guacd-record:record
     networks:
-      guacamole:
+      - guacamole
 
   postgres:
     image: postgres:15-alpine
@@ -22,21 +22,21 @@ services:
       POSTGRES_USER: guacamole
       POSTGRES_PASSWORD: 'PleaseChangeMe'
     networks:
-      guacamole:
+      - guacamole
 
   guacamole:
     image: guacamole/guacamole
     restart: always
     volumes:
       - /guacamole_home:/etc/guacamole
-    environments:
+    environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_HOSTNAME: postgres
       POSTGRES_DATABASE: guacamole
       POSTGRES_USER: guacamole
       POSTGRES_PASSWORD: 'PleaseChangeMe'
     networks:
-      guacamole:
+      - guacamole
     depends_on:
       - postgres
       - guacd
@@ -44,3 +44,6 @@ services:
       - guacd
     ports:
       - 8080:8080
+
+networks:
+  guacamole:
