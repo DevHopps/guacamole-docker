@@ -28,7 +28,7 @@ services:
     image: guacamole/guacamole
     restart: always
     volumes:
-      - ./guacamole_home:/home/guacamole/.guacamole
+      - ./guacamole_home:/etc/guacamole
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_HOSTNAME: postgres
