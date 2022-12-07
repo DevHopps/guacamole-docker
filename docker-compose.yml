@@ -30,6 +30,7 @@ services:
     volumes:
       - ./guacamole_home:/etc/guacamole
     environment:
+      GUACAMOLE_HOME: /etc/guacamole
       GUACD_HOSTNAME: guacd
       POSTGRES_HOSTNAME: postgres
       POSTGRES_DATABASE: guacamole
