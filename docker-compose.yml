@@ -11,11 +11,11 @@ services:
       - guacamole
 
   postgres:
-    image: postgres:15-alpine
+    image: postgres:13.9-alpine
     restart: always
     volumes:
-      - ./postgres-init:/docker-entrypoint-initdb.d:z
-      - ./postgres-data:/var/lib/postgresql/data:Z
+      - ./postgres-init:/docker-entrypoint-initdb.d
+      - ./postgres-data:/var/lib/postgresql/data
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole
@@ -28,7 +28,7 @@ services:
     image: guacamole/guacamole
     restart: always
     volumes:
-      - ./guacamole_home:/etc/guacamole
+      - ./guacamole_home:/home/guacamole/.guacamole
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_HOSTNAME: postgres
@@ -47,3 +47,4 @@ services:
 
 networks:
   guacamole:
+    driver: bridge
