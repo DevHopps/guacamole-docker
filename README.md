@@ -1,8 +1,17 @@
 git clone https://github.com/DevHopps/guacamole-docker.git
+
 cd guacamole-docker
 
-Change the Postgres password.
-You might have to change the port, guacamole is using (default is 8080).
+
+Change the Postgres password in the compose file!
+You might also have to change the port, guacamole is using (default is 8080).
+
+
+Attention: The init_guacamole script **needs** to be run first!
 
 chmod +x init_guacamole.sh
+
 sudo ./init_guacamole.sh
+
+
+After everything is done you can start/stop the containers via docker compose.
