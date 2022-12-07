@@ -1,7 +1,8 @@
 echo "Creating required database..."
 
-mkdir ./postgres-init >/dev/null 2>&1
-docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./postgres-init/initdb.sql
+mkdir ./postgres-init
+docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > initdb.sql
+mv initdb.sql postgres-init/initdb.sql
 
 echo "DB done!"
 echo "Starting container using docker compose"
