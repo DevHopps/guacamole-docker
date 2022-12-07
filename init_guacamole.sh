@@ -20,3 +20,9 @@ docker compose down
 echo "Installing plugins to correct folder"
 mkdir guacamole_home/extensions
 mv guacamole-auth-totp-1.4.0.jar guacamole_home/extensions/guacamole-auth-totp-1.4.0.jar
+
+echo "Done installing, starting containers!"
+docker compose up -d
+
+sleep 5
+echo "Guacamole should now be reachable via http://<host>:<port>!"
