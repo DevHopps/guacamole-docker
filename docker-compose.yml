@@ -24,23 +24,23 @@ services:
     networks:
       guacamole:
 
-    guacamole:
-      image: guacamole/guacamole
-      restart: always
-      volumes:
-        - /guacamole_home:/etc/guacamole
-      environments:
-        GUACD_HOSTNAME: guacd
-        POSTGRES_HOSTNAME: postgres
-        POSTGRES_DATABASE: guacamole
-        POSTGRES_USER: guacamole
-        POSTGRES_PASSWORD: 'PleaseChangeMe'
-      networks:
-        guacamole:
-      depends_on:
-        - postgres
-        - guacd
-      links:
-        - guacd
-      ports:
-        - 8080:8080
+  guacamole:
+    image: guacamole/guacamole
+    restart: always
+    volumes:
+      - /guacamole_home:/etc/guacamole
+    environments:
+      GUACD_HOSTNAME: guacd
+      POSTGRES_HOSTNAME: postgres
+      POSTGRES_DATABASE: guacamole
+      POSTGRES_USER: guacamole
+      POSTGRES_PASSWORD: 'PleaseChangeMe'
+    networks:
+      guacamole:
+    depends_on:
+      - postgres
+      - guacd
+    links:
+      - guacd
+    ports:
+      - 8080:8080
