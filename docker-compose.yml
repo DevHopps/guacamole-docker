@@ -6,7 +6,7 @@ services:
     restart: always
     volumes:
       - ./guacd-drive:/drive
-      - ./guacd-record:record
+      - ./guacd-record:/record
     networks:
       - guacamole
 
