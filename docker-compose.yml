@@ -20,7 +20,7 @@ services:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole
       POSTGRES_USER: guacamole
-      POSTGRES_PASSWORD: 'PleaseChangeMe'
+      POSTGRES_PASSWORD: 'PleaseChangeMe' #Change this!
     networks:
       - guacamole
 
@@ -28,13 +28,13 @@ services:
     image: guacamole/guacamole
     restart: always
     volumes:
-      - /guacamole_home:/etc/guacamole
+      - ./guacamole_home:/etc/guacamole
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRES_HOSTNAME: postgres
       POSTGRES_DATABASE: guacamole
       POSTGRES_USER: guacamole
-      POSTGRES_PASSWORD: 'PleaseChangeMe'
+      POSTGRES_PASSWORD: 'PleaseChangeMe' #Change this! (Same as above!)
     networks:
       - guacamole
     depends_on:
@@ -43,7 +43,7 @@ services:
     links:
       - guacd
     ports:
-      - 8080:8080
+      - 8080:8080 #You might have to change the Host port (left part), if some program already uses port 8080
 
 networks:
   guacamole:
