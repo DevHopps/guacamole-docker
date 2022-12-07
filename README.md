@@ -15,3 +15,6 @@ sudo ./init_guacamole.sh
 
 
 After everything is done you can start/stop the containers via docker compose.
+
+If the guacd container started succesfully, you should be able to open guacamole now.
+You can check the status via *sudo docker compose ps*
