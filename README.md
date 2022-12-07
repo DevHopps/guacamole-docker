@@ -1,3 +1,6 @@
+This is still in active development. Please check back in a few days for a 'stable' version!
+
+
 git clone https://github.com/DevHopps/guacamole-docker.git
 
 cd guacamole-docker
